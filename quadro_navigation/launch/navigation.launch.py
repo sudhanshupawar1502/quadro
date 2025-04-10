@@ -16,6 +16,7 @@ def generate_launch_description():
     map_dir = os.path.join(get_package_share_directory('quadro_slam'),'maps','mymap.yaml')
     rviz_config_file = os.path.join(share_dir,'config','nav.rviz')
     nav2_launch_path = os.path.join(get_package_share_directory('nav2_bringup'),'launch','bringup_launch.py')
+    cartographer_path = os.path.join(share_dir,'launch','cartographer.launch.py')
 
     use_sim_time_cmd = DeclareLaunchArgument(
         'use_sim_time',
@@ -53,10 +54,17 @@ def generate_launch_description():
         }
     )
 
+    cartographer_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            cartographer_path
+        )
+    )
+
     return LaunchDescription([
         use_sim_time_cmd,
         map_arg_cmd,
         params_file_cmd,
         rviz_node,
-        navigation_launch
+        navigation_launch,
+        cartographer_launch
     ])
