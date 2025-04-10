@@ -17,12 +17,12 @@ class Differential(Node):
         self.cmd_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10)
 
         # Motor Pins
-        self.leftEn = 13
-        self.rightEn = 12
-        self.left_1 = 25
-        self.left_2 = 16
-        self.right_1 = 23
-        self.right_2 =24 
+        self.leftEn = 12
+        self.rightEn = 13
+        self.left_1 = 23
+        self.left_2 = 24
+        self.right_1 = 25
+        self.right_2 =16 
 
         # GPIO Setup
         lgpio.gpio_claim_output(h, self.leftEn)
