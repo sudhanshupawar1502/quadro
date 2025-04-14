@@ -79,3 +79,8 @@ colcon build
 ```shell
   sudo apt install ros-humble-cartographer*
 ```
+
+**Slam Toolbox**
+```shell
+sudo apt install ros-humble-slam-toolbox
+```
