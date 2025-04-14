@@ -13,10 +13,11 @@ def generate_launch_description():
 
     share_dir = get_package_share_directory('quadro_navigation')
     params_file_path = os.path.join(share_dir,'config','nav2_params.yaml')
-    map_dir = os.path.join(get_package_share_directory('quadro_slam'),'maps','mymap.yaml')
+    map_dir = os.path.join(get_package_share_directory('quadro_slam'),'maps','mymap1.yaml')
     rviz_config_file = os.path.join(share_dir,'config','nav.rviz')
     nav2_launch_path = os.path.join(get_package_share_directory('nav2_bringup'),'launch','bringup_launch.py')
-    cartographer_path = os.path.join(share_dir,'launch','cartographer.launch.py')
+    slam_toolbox_path = os.path.join(get_package_share_directory('slam_toolbox'),'launch','online_async_launch.py')
+    params_file = os.path.join(share_dir,'config','mapper_params_online_async.yaml')
 
     use_sim_time_cmd = DeclareLaunchArgument(
         'use_sim_time',
@@ -51,13 +52,17 @@ def generate_launch_description():
             "use_sim_time" : use_sim_time,
             "map" : map_,
             "params_file" : params_file
-        }
+        }.items()
     )
-    #using cartographer to get odometry from slam
-    cartographer_launch = IncludeLaunchDescription(
+
+    slam_toolbox_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            cartographer_path
-        )
+            slam_toolbox_path
+        ),
+        launch_arguments={
+            'params_file' : params_file,
+            'use_sim_time' : use_sim_time
+        }.items()
     )
 
     return LaunchDescription([
@@ -66,5 +71,6 @@ def generate_launch_description():
         params_file_cmd,
         rviz_node,
         navigation_launch,
-        cartographer_launch
+        slam_toolbox_launch
+
     ])
