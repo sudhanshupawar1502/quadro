@@ -20,7 +20,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     
     share_dir = get_package_share_directory('quadro_slam')
-    slam_toolbox_path = os.path.join(get_package_share_directory('slam_toolbox'),'launch','online_async.launch.py')
+    slam_toolbox_path = os.path.join(get_package_share_directory('slam_toolbox'),'launch','online_async_launch.py')
     params_file = os.path.join(share_dir,'config','mapper_params_online_async.yaml')
     rviz_confifg = os.path.join(share_dir,'config','slam.rviz')
 
