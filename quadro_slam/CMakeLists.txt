@@ -10,7 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(slam_toolbox REQUIRED)
 
 install(
-  DIRECTORY launch config maps
+  DIRECTORY launch config 
   DESTINATION share/${PROJECT_NAME}
 )
 
