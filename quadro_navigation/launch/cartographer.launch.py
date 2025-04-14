@@ -82,18 +82,6 @@ def generate_launch_description():
       ],
       parameters= [{'use_sim_time':use_sim_time}],
       output='screen'
-    ),
-
-    Node(
-      package='cartographer_ros',
-      condition= IfCondition(exploration),
-      executable='cartographer_occupancy_grid_node',
-      name='cartographer_occupancy_grid_node',
-      arguments=[
-        '-resolution', res,
-        '-publish_period_sec', publish_period
-      ]
     )
-
   ]
 )
