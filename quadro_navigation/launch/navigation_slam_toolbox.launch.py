@@ -13,7 +13,7 @@ def generate_launch_description():
 
     share_dir = get_package_share_directory('quadro_navigation')
     params_file_path = os.path.join(share_dir,'config','nav2_params.yaml')
-    map_dir = os.path.join(get_package_share_directory('quadro_slam'),'maps','mymap1.yaml')
+    map_dir = os.path.join(get_package_share_directory('quadro_slam'),'maps','industrial_warehouse.yaml')
     rviz_config_file = os.path.join(share_dir,'config','nav.rviz')
     nav2_launch_path = os.path.join(get_package_share_directory('nav2_bringup'),'launch','bringup_launch.py')
     slam_toolbox_path = os.path.join(get_package_share_directory('slam_toolbox'),'launch','online_async_launch.py')
