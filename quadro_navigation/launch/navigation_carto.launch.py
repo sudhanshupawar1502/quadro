@@ -53,7 +53,7 @@ def generate_launch_description():
             "params_file" : params_file
         }
     )
-    #using cartographer to get odometry from slam
+    #using cartographer to get odometry from /scan
     cartographer_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             cartographer_path
