@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/sudhanshu/ros2_ws/install/my_robot_interfaces/local/lib/python3.10/dist-packages",
+        "/home/sudhanshu/rigbetel_ws/install/ogmen_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/sudhanshu/ros2_ws/install/my_robot_interfaces/local/lib/python3.10/dist-packages",
+        "/home/sudhanshu/rigbetel_ws/install/ogmen_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

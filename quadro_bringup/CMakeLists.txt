@@ -9,7 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
-find_package(ydlidar_ros2_driver REQUIRED)
+#find_package(ydlidar_ros2_driver REQUIRED)
 
 install(
 DIRECTORY launch
