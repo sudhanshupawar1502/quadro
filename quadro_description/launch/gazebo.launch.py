@@ -35,11 +35,15 @@ def generate_launch_description():
     urdf_doc = xacro.process_file(urdf_file)
     robot_desc = urdf_doc.toxml()
 
-    world_path = PathJoinSubstitution([
-        FindPackageShare(pkg_robot_description),
-        'worlds',
-        LaunchConfiguration('world_file')
-    ])
+    world_launch_cmd = DeclareLaunchArgument(
+        'world',
+        default_value='industrial_warehouse',
+        description='world_load_into_gazebo'
+    )
+
+    world_launch_config = SetLaunchConfiguration(name='world_file', 
+                        value=[LaunchConfiguration('world'), 
+                                TextSubstitution(text='.sdf')])
 
 
 
@@ -70,7 +74,8 @@ def generate_launch_description():
             os.path.join(get_package_share_directory("ros_gz_sim"), "launch", "gz_sim.launch.py")
         ),
         launch_arguments={
-            "gz_args": "-r empty.sdf"
+            "gz_args": [PathJoinSubstitution([pkg_robot_description, 'worlds',
+                                              LaunchConfiguration('world_file')])]
         }.items(),
     )
 
@@ -109,7 +114,8 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        # declare_world_arg,
+        world_launch_cmd,
+        world_launch_config,
         gazebo_resource_path,
         robot_state_publisher_node,
         # joint_state_publisher_node,
