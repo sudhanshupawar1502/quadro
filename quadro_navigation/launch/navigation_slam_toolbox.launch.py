@@ -70,7 +70,7 @@ def generate_launch_description():
         map_arg_cmd,
         params_file_cmd,
         rviz_node,
-        navigation_launch,
-        slam_toolbox_launch
+        navigation_launch
+        #slam_toolbox_launch
 
     ])
